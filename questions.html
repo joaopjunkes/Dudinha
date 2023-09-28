@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas para Dudinha</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #92fe9d, #00c9ff); /* Adiciona um fundo gradient bonito */
+            color: white; /* Texto em branco para melhor legibilidade */
+        }
+
+        h1, p {
+            text-align: center; /* Centraliza o texto */
+        }
+
+        button {
+            margin: 5px;
+            background-color: #ffffff; /* Fundo branco para os botões */
+            color: #333; /* Texto escuro para os botões */
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd; /* Mudança de cor ao passar o mouse */
+        }
+
+        .selected {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Perguntas para Dudinha</h1>
+    <p>Dias da semana que a Dudinha está livre?</p>
+    <button onclick="selectDay(this)">Sexta-feira</button>
+    <button onclick="selectDay(this)">Sábado</button>
+    <button onclick="selectDay(this)">Domingo</button>
+
+    <p>Role perfeito para a Dudinha não pode faltar:</p>
+    <input type="text" id="roleInput" placeholder="Resposta">
+
+    <p>Qual a comida favorita da Dudinha?</p>
+    <input type="text" id="foodInput" placeholder="Resposta">
+
+    <button onclick="submitAnswers()">Enviar</button>
+
+    <script>
+        function selectDay(button) {
+            // Remove a classe 'selected' de todos os botões
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+
+            // Adiciona a classe 'selected' ao botão clicado
+            button.classList.add('selected');
+        }
+
+        function submitAnswers() {
+            const selectedDay = document.querySelector('.selected');
+            const roleInput = document.getElementById('roleInput').value;
+            const foodInput = document.getElementById('foodInput').value;
+
+            alert("Dia selecionado: " + (selectedDay ? selectedDay.innerText : "Nenhum dia selecionado") + "\nRole: " + roleInput + "\nComida: " + foodInput + "\n\nPor favor, tirar print e me enviar no pv (kkkk ainda não aprendi a salvar as informações)");
+        }
+    </script>
+</body>
+</html>

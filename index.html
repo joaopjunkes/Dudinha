@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Adiciona um fundo gradient bonito */
+            color: white; /* Texto em branco para melhor legibilidade */
+        }
+
+        #btnYes, #btnNo {
+            margin: 10px;
+            background-color: #ffffff; /* Fundo branco para os botões */
+            color: #333; /* Texto escuro para os botões */
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #btnYes:hover, #btnNo:hover {
+            background-color: #ddd; /* Mudança de cor ao passar o mouse */
+        }
+    </style>
+    <title>Dudinha e Juaum</title>
+</head>
+<body>
+    <p>A Dudinha vai dar alguma chance pro Juaum?</p>
+    <button id="btnYes" onclick="openQuestions()">Sim</button>
+    <button id="btnNo" onclick="moveButton()">Não</button>
+
+    <script>
+        function moveButton() {
+            const btnNo = document.getElementById('btnNo');
+            const maxWidth = window.innerWidth - btnNo.clientWidth;
+            const maxHeight = window.innerHeight - btnNo.clientHeight;
+
+            const newX = Math.floor(Math.random() * maxWidth);
+            const newY = Math.floor(Math.random() * maxHeight);
+
+            btnNo.style.position = 'absolute';
+            btnNo.style.left = newX + 'px';
+            btnNo.style.top = newY + 'px';
+        }
+
+        function openQuestions() {
+            window.location.href = 'questions.html';
+        }
+    </script>
+</body>
+</html>
